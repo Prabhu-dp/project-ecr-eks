@@ -1,0 +1,23 @@
+{
+  "name": "eks-demo-app-ci-cd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damodaranj/eks-demo-app-ci-cd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damodaranj/eks-demo-app-ci-cd/issues"
+  },
+  "homepage": "https://github.com/damodaranj/eks-demo-app-ci-cd#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

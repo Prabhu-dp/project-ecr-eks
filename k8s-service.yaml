@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: green-eks
+  labels:
+    app: green-eks
+spec:
+  ports:
+  - name: "80"
+    port: 80
+    targetPort: green-eks
+    protocol: TCP
+  - name: "443"
+    port: 443
+    targetPort: green-eks
+    protocol: TCP
+  selector:
+    app: green-eks
+  type: LoadBalancer
