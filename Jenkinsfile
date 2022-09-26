@@ -2,7 +2,7 @@ pipeline {
       environment {
         imagename = "greensdevops.jfrog.io/cicdtest/test"
         registryCredential = 'docker-jfrog'
-        dockerImage = ''
+        
       }
      agent any
      stages {
@@ -36,8 +36,8 @@ pipeline {
      }
      stage('Deploy Image') {
       steps{
-        withCredentials([usernamePassword(credentialsId: registryCredential , usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
         script {
+          withCredentials([usernamePassword(credentialsId: registryCredential , usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh "docker login -u $USERNAME -p $PASSWORD"
           sh "docker push $imagename:$BUILD_NUMBER"
           }
