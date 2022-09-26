@@ -1,6 +1,6 @@
 pipeline {
       environment {
-        imagename = ""
+        imagename = "greensdevops.jfrog.io/cicdtest/test"
         registryCredential = 'docker-jfrog'
         dockerImage = ''
       }
