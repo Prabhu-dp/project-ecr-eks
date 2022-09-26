@@ -30,18 +30,17 @@ pipeline {
      stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build imagename
+          sh "docker build -t $imagename:$BUILD_NUMBER"
         }
       }
      }
      stage('Deploy Image') {
       steps{
+        withCredentials([usernamePassword(credentialsId: registryCredential , usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
         script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push("$BUILD_NUMBER")
-             dockerImage.push('latest')
-
-           }
+          sh "docker login -u $USERNAME -p $PASSWORD"
+          sh "docker push $imagename:$BUILD_NUMBER"
+          }
          }
        }
      }
