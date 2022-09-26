@@ -1,6 +1,5 @@
 pipeline {
       environment {
-        imagenamebuild = "greensdevops.jfrog.io/cicdtest"
         imagename = "greensdevops.jfrog.io/cicdtest/test"
         registryCredential = 'docker-jfrog'
         
@@ -31,7 +30,7 @@ pipeline {
      stage('Building image') {
       steps{
         script {
-          sh "docker build -t $imagenamebuild:$BUILD_NUMBER"
+          sh "docker build -t $imagename:$BUILD_NUMBER ."
         }
       }
      }
@@ -40,7 +39,6 @@ pipeline {
         script {
           withCredentials([usernamePassword(credentialsId: registryCredential , usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh "docker login -u $USERNAME -p $PASSWORD"
-          sh "docker tag $imagenamebuild:$BUILD_NUMBER $imagename:$BUILD_NUMBER"
           sh "docker push $imagename:$BUILD_NUMBER"
           }
          }
