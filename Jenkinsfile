@@ -52,12 +52,7 @@ pipeline {
     }
     stage('Deploy K8S') {
       steps {
-        script {
           sh "kubectl apply -f k8s-service.yaml"
-          {
-             
-          }
-        }
       }
     }
   }
