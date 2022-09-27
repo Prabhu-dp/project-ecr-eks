@@ -53,11 +53,8 @@ pipeline {
     stage('string (secret text)') {
       steps {
         script {
-          withCredentials([
-            string(
-              credentialsId: 'aws-id',
-              variable: 'aws-id')
-          ]) {
+          withCredentials([string(credentialsId: 'aws-id', variable: 'aws-id')])
+          {
             print 'aws-id=' + aws-id
             print 'aws-id.collect { it }=' + aws-id.collect { it }
           }
