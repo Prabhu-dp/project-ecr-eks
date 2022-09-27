@@ -50,13 +50,12 @@ pipeline {
 
       }
     }
-    stage('string (secret text)') {
+    stage('Deploy K8S') {
       steps {
         script {
-          withCredentials([string(credentialsId: 'aws-id', variable: 'aws-id')])
+          sh "kubectl apply -f k8s-service.yaml"
           {
-            print 'aws-id=' + aws-id
-            print 'aws-id.collect { it }=' + aws-id.collect { it }
+             
           }
         }
       }
