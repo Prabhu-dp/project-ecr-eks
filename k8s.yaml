@@ -36,7 +36,9 @@ spec:
     spec:
       containers:
       - name: green-eks
-        image: default/greens-demo
+        image: greensdevops.jfrog.io/cicdtest/test:12
+        imagePullSecrets:
+         - name: privatecred
         ports:
           - containerPort: 9000
             name: green-eks
