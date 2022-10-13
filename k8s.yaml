@@ -36,12 +36,11 @@ spec:
     spec:
       containers:
       - name: green-eks
-        image: greensdevops.jfrog.io/cicdtest/test:BUILD_NUMBER
+        image: 682566162190.dkr.ecr.ap-south-1.amazonaws.com/greenstest:BUILD_NUMBER
         ports:
           - containerPort: 9000
             name: green-eks
             protocol: TCP
-      imagePullSecrets:
-      - name: privatecred
+      
         
         
