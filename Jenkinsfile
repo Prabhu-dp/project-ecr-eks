@@ -1,7 +1,6 @@
 pipeline {
       environment {
-        imagename = "greensdevops.jfrog.io/cicdtest/test"
-        registryCredential = 'docker-jfrog'
+        imagename = "greenstest:latest 682566162190.dkr.ecr.ap-south-1.amazonaws.com/greenstest"
         
       }
      agent any
@@ -37,8 +36,7 @@ pipeline {
      stage('Deploy Image') {
       steps{
         script {
-          withCredentials([usernamePassword(credentialsId: registryCredential , usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-          sh "docker login -u $USERNAME -p $PASSWORD"
+          sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 682566162190.dkr.ecr.ap-south-1.amazonaws.com"
           sh "docker push $imagename:$BUILD_NUMBER"
           }
          }
