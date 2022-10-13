@@ -1,6 +1,6 @@
 pipeline {
       environment {
-        imagename = "greenstest:latest 682566162190.dkr.ecr.ap-south-1.amazonaws.com/greenstest"
+        imagename = "682566162190.dkr.ecr.ap-south-1.amazonaws.com/greenstest"
         
       }
      agent any
