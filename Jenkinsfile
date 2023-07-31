@@ -1,6 +1,6 @@
 pipeline {
       environment {
-        imagename = "682566162190.dkr.ecr.ap-south-1.amazonaws.com/greenstest"
+        imagename = "721526914250.dkr.ecr.ap-south-1.amazonaws.com/greenstest"
         
       }
      agent any
@@ -36,7 +36,7 @@ pipeline {
      stage('Deploy Image') {
       steps{
         script {
-          sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 682566162190.dkr.ecr.ap-south-1.amazonaws.com"
+          sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 721526914250.dkr.ecr.ap-south-1.amazonaws.com"
           sh "docker push $imagename:$BUILD_NUMBER"
           
          }
