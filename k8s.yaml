@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: green-eks
-        image: 423913260810.dkr.ecr.ap-south-1.amazonaws.com/greenstest:BUILD_NUMBER
+        image: 347210847097.dkr.ecr.ap-south-1.amazonaws.com/greenstest:BUILD_NUMBER
         ports:
           - containerPort: 9000
             name: green-eks
